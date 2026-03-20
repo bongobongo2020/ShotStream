@@ -80,3 +80,25 @@ or directly:
 bash tools/setup/download_ckpt.sh
 ```
 **3. Autoregressive 4-step Long Multi-Shot Video Generation**
+```bash
+bash tools/inference/causal_fewsteps.sh
+```
+
+
+### Training
+#### Step 1: Bidirectional Next-Shot Teacher Model Training
+**Note:** You need to update `MASTER_ADDR` in [tools/train/1_basemodel.sh]() with the main node's IP address. For multi-node training, the `NNODES` variable also needs to be modified accordingly.
+
+**Single node:** 
+```bash
+bash tools/train/1_basemodel.sh 0
+```
+
+**Multi-nodes:** 
+```bash
+# Run this command on node 0 (main node)
+bash tools/train/1_basemodel.sh 0
+# Run this command on node 1 (worker node)
+bash tools/train/1_basemodel.sh 1
+...
+```
