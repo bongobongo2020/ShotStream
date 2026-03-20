@@ -117,3 +117,24 @@ python Teacher_Ode_Sample.py \
   --save_dir demo/data/ode_sample \
   --data_csv_path demo/data/sample.csv
 ```
+**Step 2.1.2 Get ODE Pairs CSV**
+```python
+python /m2v_intern/luoyawen/ECCV2026/ShotStream/get_ode_csv.py \
+    -i demo/data/ode_sample \
+    -o demo/data/ode_sample.csv
+```
+**Step 2.1.3 Causal Initialization**
+
+**Single node:** 
+```bash
+bash tools/train/2_ode_init.sh 0
+```
+
+**Multi-nodes:** 
+```bash
+# Run this command on node 0 (main node)
+bash tools/train/2_ode_init.sh 0
+# Run this command on node 1 (worker node)
+bash tools/train/2_ode_init.sh 1
+...
+```
