@@ -111,4 +111,9 @@ bash tools/train/1_basemodel.sh 1
 **Step 2.1 Causal Adaptation Initialization**: Following [CausVid](https://arxiv.org/pdf/2412.07772v1), we initialize the causal student with the bidirectional teacher's weights. Training all parameters on 5K teacher ODE solution pairs aligns their trajectories, bridging the architectural gap and stabilizing subsequent distillation.
 
 **Step 2.1.1 Get ODE Pairs from Teacher**
-
+```bash
+python Teacher_Ode_Sample.py \
+  --ckpt_dir ckpts/bidirectional_teacher.pt \
+  --save_dir demo/data/ode_sample \
+  --data_csv_path demo/data/sample.csv
+```
