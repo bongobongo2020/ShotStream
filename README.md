@@ -120,7 +120,7 @@ python Teacher_Ode_Sample.py \
 ```
 **Step 2.1.2 Get ODE Pairs CSV**
 ```python
-python /m2v_intern/luoyawen/ECCV2026/ShotStream/get_ode_csv.py \
+python get_ode_csv.py \
     -i demo/data/ode_sample \
     -o demo/data/ode_sample.csv
 ```
@@ -181,3 +181,5 @@ Please leave us a star 🌟 and cite our paper if you find our work helpful.
 - [Self Forcing](https://github.com/guandeh17/Self-Forcing): the distillation procedure we built upon. Thanks for their wonderful work.
 - [LongLive](https://github.com/NVlabs/LongLive): the distillation procedure we built upon. Thanks for their wonderful work.
 - [Wan](https://github.com/Wan-Video/Wan2.1): the base model we built upon. Thanks for their wonderful work.
+
+
