@@ -11,7 +11,7 @@
     <a href="https://xiaoyushi97.github.io/">Xiaoyu Shi</a><sup>2,✉</sup>
     <a href="https://zhuang2002.github.io/">Junhao Zhuang</a><sup>1</sup>
     <a href="https://yutian10.github.io/">Yutian Chen</a><sup>1</sup>
-    <a href="https://liuquande.github.io/">Quande Liu</a><sup>2</sup>
+    <a href="https://liuquande.github.io/">Quande Liu</a><sup>2</sup> 
     <a href="https://xinntao.github.io/">Xintao Wang</a><sup>2</sup>
     <a href="https://magicwpf.github.io/">Pengfei Wan</a><sup>2</sup><br>
     <a href="https://tianfan.info/">Tianfan Xue</a><sup>1,3,✉</sup>
@@ -111,11 +111,11 @@ bash tools/inference/causal_fewsteps.sh
 
 ### Training
 
-#### Step 1: Bidirectional Next-Shot Teacher Model Training
-
 > **Note:**
-> 1. You need to update `MASTER_ADDR` in `tools/train/1_basemodel.sh` with the main node's IP address. For multi-node training, the `NNODES` variable also needs to be modified accordingly.
+> 1. You need to update `MASTER_ADDR` in all `bash` files with the main node's IP address. For multi-node training, the `NNODES` variable also needs to be modified accordingly.
 > 2. The multi-shot video example provided is sourced from a public dataset for demonstration purposes. Its captions differ from those used in our actual training set.
+
+#### Step 1: Bidirectional Next-Shot Teacher Model Training
 
 Single node:
 ```bash
