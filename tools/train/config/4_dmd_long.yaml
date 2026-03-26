@@ -1,0 +1,82 @@
+log_name: tensorboard
+
+dmd_debug: False
+
+# model & training
+trainer: score_distillation_frameconcat_stream
+
+# if need dynamic sample + change rope
+dynamic_sample_frames: True
+change_rope: True
+max_context_frames: 6 
+multi_caption: True
+
+# Lora Setting
+train_lora: True
+
+model_name: Wan2.1-T2V-1.3B
+resume_ckpt: ckpts/shotstream_merged.pt
+real_name: Wan2.1-T2V-1.3B
+resume_ckpt_real: ckpts/bidirectional_teacher.pt
+fake_name: Wan2.1-T2V-1.3B
+resume_ckpt_fake: ckpts/bidirectional_teacher.pt
+distribution_loss: dmd_frameconcat
+denoising_loss_type: flow
+only_train3d: False
+denoising_step_list:
+- 1000
+- 740
+- 500
+- 260
+# - 1001
+warp_denoising_step: True # need to remove - 0 in denoising_step_list if warp_denoising_step is true
+num_frame_per_block: 3
+
+seed: 0
+generator_fsdp_wrap_strategy: size
+text_encoder_fsdp_wrap_strategy: size
+real_score_fsdp_wrap_strategy: size
+fake_score_fsdp_wrap_strategy: size
+ts_schedule: false
+num_train_timestep: 1000
+timestep_shift: 8.0
+guidance_scale: 3.0
+mixed_precision: true
+sharding_strategy: hybrid_full
+lr: 2.0e-06
+lr_critic: 4.0e-07
+beta1: 0.0
+beta2: 0.999
+beta1_critic: 0.0
+beta2_critic: 0.999
+gradient_accumulation_steps: 1
+gradient_checkpointing: true
+max_grad_norm_generator: 1.0
+
+# Data
+data_path: demo/data/sample.csv
+batch_size: 1
+total_batch_size: 64
+restrict_max_length: 81
+
+# log 
+log_iters: 50
+max_iters: 30000
+negative_prompt: '色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走'
+
+output_folder: save_dir/frameconcat
+
+dfake_gen_update_ratio: 6
+min_num_training_frames: 21
+num_training_frames: 21
+slice_last_frames: 21
+
+## LoRA Configuration
+adapter:
+  type: "lora"
+  rank: 256                    # LoRA rank (typical values: 8, 16, 32, 64)
+  alpha: 256                   # LoRA alpha (typically same as rank, but can be different)
+  dropout: 0.0                # LoRA dropout rate
+  dtype: "bfloat16"          # Data type for LoRA parameters: "bfloat16", "float16", "float32"
+  apply_to_critic: true       # Whether to apply LoRA to critic/fake_score model
+  verbose: true              # Whether to print all target module names
