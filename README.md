@@ -217,7 +217,7 @@ Please leave us a star 🌟 and cite our paper if you find our work helpful.
 ```
 
 ## 🤗 Acknowledgement
-- [CausalVid](https://github.com/tianweiy/CausVid): the distillation procedure we built upon. Thanks for their wonderful work.
+- [CausVid](https://github.com/tianweiy/CausVid): the distillation procedure we built upon. Thanks for their wonderful work.
 - [Self Forcing](https://github.com/guandeh17/Self-Forcing): the distillation procedure we built upon. Thanks for their wonderful work.
 - [LongLive](https://github.com/NVlabs/LongLive): the distillation procedure we built upon. Thanks for their wonderful work.
 - [Wan](https://github.com/Wan-Video/Wan2.1): the base model we built upon. Thanks for their wonderful work.
