@@ -72,7 +72,18 @@ Please watch more video results in our [Project Page](https://luo0207.github.io/
 
 ## ⚙️ Code: ShotStream + Wan2.1-T2V-1.3B
 
-### Inference
+### Desktop UI Application
+
+For a user-friendly graphical interface with automated environment setup, try our **ShotStream UI** - a cross-platform .NET desktop application:
+
+- **Automated Setup**: Uses UV to automatically download and configure the environment
+- **Beautiful UI**: Modern dark-themed interface for creating multi-shot stories
+- **GPU Detection**: Automatically detects and displays available GPU
+- **Progress Tracking**: Real-time status updates during video generation
+
+Get started: [ShotStream.UI/README.md](../ShotStream.UI/README.md)
+
+### Inference (CLI)
 
 #### 1. Environment Setup
 
